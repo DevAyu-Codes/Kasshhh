@@ -1,36 +1,26 @@
-import { useState, useEffect } from 'react';
-import { generateClient } from 'aws-amplify/data';
-import { useAuthenticator } from '@aws-amplify/ui-react';
-
-const client = generateClient();
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 
 export default function App() {
-  const { user, signOut } = useAuthenticator();
-  const [profiles, setProfiles] = useState([]);
-
-  useEffect(() => {
-    const sub = client.models.UserProfile.observeQuery().subscribe({
-      next: ({ items }) => setProfiles([...items]),
-    });
-    return () => sub.unsubscribe();
-  }, []);
-
   return (
-    <main>
-      <h1>Aakash Thapa</h1>
-      <p>Logged in as: {user?.signInDetails?.loginId}</p>
-      
-      <div>
-        <h2>Registered Profiles</h2>
-        {profiles.length === 0 ? <p>Loading profiles...</p> : 
-          profiles.map(profile => (
-           <div className="profile-card" key={profile.id}>
-             📧 {profile.email}
-           </div>
-        ))}
-      </div>
+    <Authenticator>
+      {({ signOut, user }) => (
+        <main className="container">
+          <div className="glass-card">
+            <h1>Aakash Thapa</h1>
+            <h2>EUID: at1045</h2>
+            <p className="login-info">
+              Logged in as: <span>{user?.signInDetails?.loginId}</span>
+            </p>
+            
+            {/* The "Registered Profiles" section has been removed from here */}
 
-      <button onClick={signOut}>Sign Out</button>
-    </main>
+            <button onClick={signOut} className="signout-btn">
+              Sign Out
+            </button>
+          </div>
+        </main>
+      )}
+    </Authenticator>
   );
 }
