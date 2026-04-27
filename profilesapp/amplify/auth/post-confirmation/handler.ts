@@ -1,4 +1,3 @@
-cat << 'EOF' > amplify/auth/post-confirmation/handler.ts
 import type { PostConfirmationTriggerHandler } from "aws-lambda";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/data";

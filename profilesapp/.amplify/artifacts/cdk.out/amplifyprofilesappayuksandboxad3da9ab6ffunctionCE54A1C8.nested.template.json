@@ -166,7 +166,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "b42e799c9847737c4d4e31af4a3acceacbb0929673d3d1c4c195893dd55ae22e.zip"
+     "S3Key": "3962ff856804cbb6f19a648705b466ee42582047d3f6c26ce9a644f87b0c4f7d.zip"
     },
     "Environment": {
      "Variables": {
@@ -212,7 +212,7 @@
    "DeletionPolicy": "Delete",
    "Metadata": {
     "aws:cdk:path": "amplify-profilesapp-ayuk-sandbox-ad3da9ab6f/function/post-confirmation-lambda/Resource",
-    "aws:asset:path": "asset.b42e799c9847737c4d4e31af4a3acceacbb0929673d3d1c4c195893dd55ae22e",
+    "aws:asset:path": "asset.3962ff856804cbb6f19a648705b466ee42582047d3f6c26ce9a644f87b0c4f7d",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }
