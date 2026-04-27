@@ -13,4 +13,3 @@ export const handler: PostConfirmationTriggerHandler = async (event) => {
   });
   return event;
 };
-EOF
