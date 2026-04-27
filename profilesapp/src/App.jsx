@@ -17,14 +17,20 @@ export default function App() {
 
   return (
     <main>
-      <h1>Hello Aakash Thapa ({user?.signInDetails?.loginId})</h1>
-      <button onClick={signOut}>Sign out</button>
+      <h1>Aakash Thapa</h1>
+      <p>Logged in as: {user?.signInDetails?.loginId}</p>
+      
       <div>
-        <h2>Database Profiles</h2>
-        {profiles.map(profile => (
-           <div key={profile.id}>{profile.email}</div>
+        <h2>Registered Profiles</h2>
+        {profiles.length === 0 ? <p>Loading profiles...</p> : 
+          profiles.map(profile => (
+           <div className="profile-card" key={profile.id}>
+             📧 {profile.email}
+           </div>
         ))}
       </div>
+
+      <button onClick={signOut}>Sign Out</button>
     </main>
   );
 }
